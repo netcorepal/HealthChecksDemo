@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>当前主机 @System.Environment.MachineName</p>
+    <p>Live</p>
+    <p><a target="_blank" href="/live">Live</a></p>
+    <p><a target="_blank" href="@Url.Action("SetLive",new { live=false })">live=false</a></p>
+    <p><a target="_blank" href="@Url.Action("SetLive",new { live=true })">live=true</a></p>
+    <p>Ready</p>
+    <p><a target="_blank" href="/ready">Ready</a></p>
+    <p><a target="_blank" href="@Url.Action("SetReady",new { ready=false })">ready=false</a></p>
+    <p><a target="_blank" href="@Url.Action("SetReady",new { ready=true })">ready=true</a></p>
+    <p>Exit</p>
+    <p><a target="_blank" href="@Url.Action("Exit")">Exit</a></p>
+</body>
+</html>
