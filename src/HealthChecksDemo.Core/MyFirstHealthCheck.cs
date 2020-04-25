@@ -6,11 +6,8 @@ namespace HealthChecksDemo
 {
     class MyFirstHealthCheck : IHealthCheck
     {
-
-
         public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
         {
-            throw new Exception("sdfsd");
             var result = new HealthCheckResult(HealthStatus.Degraded);
             return Task.FromResult(result);
         }

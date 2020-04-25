@@ -37,7 +37,7 @@ namespace HealthChecksDemo
                 option.Period = TimeSpan.FromSeconds(10);
             });
             services.AddHealthChecks()
-                .AddMyFirstHealthCheck("myfirstchecker", failureStatus: HealthStatus.Healthy, tags: new string[] { "live" })
+                .AddMyFirstHealthCheck("myfirstchecker", tags: new string[] { "live" })
                 //.AddSqlServer(connectionString: "localhost", name: "sql")
                 .AddCheck("live", () =>
                 {
