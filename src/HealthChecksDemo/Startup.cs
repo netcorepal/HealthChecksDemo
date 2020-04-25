@@ -36,8 +36,8 @@ namespace HealthChecksDemo
             {
                 option.Period = TimeSpan.FromSeconds(10);
             });
-            services.AddHealthChecks()           
-                .AddMyFirstHealthCheck("myfirstchecker", tags: new string[] { "live" })
+            services.AddHealthChecks()
+                .AddMyFirstHealthCheck("myfirstchecker", failureStatus: HealthStatus.Healthy, tags: new string[] { "live" })
                 //.AddSqlServer(connectionString: "localhost", name: "sql")
                 .AddCheck("live", () =>
                 {
@@ -71,9 +71,6 @@ namespace HealthChecksDemo
 
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.MapHealthChecks("/healthcheck").RequireHost("www.abc.com");
-                //endpoints.MapHealthChecks("/healthcheck2").RequireHost("localhost");
-                //endpoints.MapHealthChecks("/healthcheck3");
                 endpoints.MapHealthChecks("/live", new HealthCheckOptions { Predicate = checker => checker.Tags.Contains("live") });
                 endpoints.MapHealthChecks("/ready", new HealthCheckOptions { Predicate = checker => checker.Tags.Contains("ready") });
                 endpoints.MapHealthChecks("/checkall");

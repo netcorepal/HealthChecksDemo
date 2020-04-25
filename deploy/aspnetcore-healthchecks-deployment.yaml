@@ -6,7 +6,7 @@ metadata:
   labels:
     tag: aspnetcore-healthchecks
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       labels:
@@ -14,8 +14,8 @@ spec:
     spec:
       containers:
       - name: aspnetcore-healthchecks
-        image: "docker.pkg.github.com/netcorepal/healthchecksdemo/aspnetcore-healthchecks:v1.0"
-        imagePullPolicy: Always
+        image: "aspnetcore-healthchecks:v1.0"
+        imagePullPolicy: IfNotPresent
         env:
         volumeMounts:
         args:

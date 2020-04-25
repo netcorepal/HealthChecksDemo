@@ -8,6 +8,8 @@ EXPOSE 443
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
 COPY ["src/HealthChecksDemo/HealthChecksDemo.csproj", "src/HealthChecksDemo/"]
+COPY ["src/HealthChecksDemo.Core/HealthChecksDemo.Core.csproj", "src/HealthChecksDemo.Core/"]
+COPY ["NuGet.config","NuGet.config"]
 RUN dotnet restore "src/HealthChecksDemo/HealthChecksDemo.csproj"
 COPY . .
 WORKDIR "/src/src/HealthChecksDemo"
